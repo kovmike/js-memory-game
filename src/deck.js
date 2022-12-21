@@ -39,13 +39,13 @@ const deck = [
   { rank: "Ac", isFlipped: false },
 ];
 
-const getMemoDeck = () => {
+export const getMemoDeck = () => {
   const shuffledDeck = _.shuffle(deck);
   const slicedDeck = _.slice(shuffledDeck, 0, 15);
-  return _.shuffle([...slicedDeck, ...slicedDeck]);
-};
-
-export const memo = getMemoDeck().map((card, index) => ({
+  return _.shuffle([...slicedDeck, ...slicedDeck]).map((card, index) => ({
   ...card,
   id: `${card.rank}-${index}`,
 }));
+};
+
+
