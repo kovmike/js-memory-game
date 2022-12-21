@@ -15,13 +15,11 @@ export const Grid = () => {
             <Col key={`colIndex-${colIndex}`}>
               <div
                 className="memo-card"
-                onClick={() => cardClicked(card)}
+                onClick={() => {
+                  if (!card.isFlipped) cardClicked(card);
+                }}
               >
-                <Card
-                  card={card.rank}
-                  height="150px"
-                  back={!card.isFlipped}
-                />
+                <Card card={card.rank} height="150px" back={!card.isFlipped} />
               </div>
             </Col>
           ))}
